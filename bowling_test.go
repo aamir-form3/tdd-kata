@@ -11,14 +11,14 @@ type BowlingTestSuite struct {
 	g *game
 }
 
-func (suite *BowlingTestSuite) rollSpare() {
-	suite.g.Roll(5)
-	suite.g.Roll(5)
+func (s *BowlingTestSuite) rollSpare() {
+	s.g.Roll(5)
+	s.g.Roll(5)
 }
 
-func (suite *BowlingTestSuite) rollMany(pins int, times int) {
+func (s *BowlingTestSuite) rollMany(pins int, times int) {
 	for i := 0; i < times; i++ {
-		suite.g.Roll(pins)
+		s.g.Roll(pins)
 	}
 }
 
@@ -26,41 +26,41 @@ func TestBowlingSuite(t *testing.T) {
 	suite.Run(t, new(BowlingTestSuite))
 }
 
-func (suite *BowlingTestSuite) SetupTest() {
-	suite.g = NewGame()
+func (s *BowlingTestSuite) SetupTest() {
+	s.g = NewGame()
 }
 
-func (suite *BowlingTestSuite) TestCanRoll() {
-	suite.g.Roll(0)
-	assert.Equal(suite.T(), 0, suite.g.Score())
+func (s *BowlingTestSuite) TestCanRoll() {
+	s.g.Roll(0)
+	assert.Equal(s.T(), 0, s.g.Score())
 }
 
-func (suite *BowlingTestSuite) TestGutterGame() {
-	suite.rollMany(0, 20)
-	assert.Equal(suite.T(), 0, suite.g.Score())
+func (s *BowlingTestSuite) TestGutterGame() {
+	s.rollMany(0, 20)
+	assert.Equal(s.T(), 0, s.g.Score())
 }
 
-func (suite *BowlingTestSuite) TestAllOneGame() {
-	suite.rollMany(1, 20)
-	assert.Equal(suite.T(), 20, suite.g.Score())
+func (s *BowlingTestSuite) TestAllOneGame() {
+	s.rollMany(1, 20)
+	assert.Equal(s.T(), 20, s.g.Score())
 }
 
-func (suite *BowlingTestSuite) TestOneSpare() {
-	suite.rollSpare()
-	suite.g.Roll(3)
-	suite.rollMany(0, 17)
-	assert.Equal(suite.T(), 16, suite.g.Score())
+func (s *BowlingTestSuite) TestOneSpare() {
+	s.rollSpare()
+	s.g.Roll(3)
+	s.rollMany(0, 17)
+	assert.Equal(s.T(), 16, s.g.Score())
 }
 
-func (suite *BowlingTestSuite) TestOneStrike() {
-	suite.g.Roll(10)
-	suite.g.Roll(3)
-	suite.g.Roll(4)
-	suite.rollMany(0, 16)
-	assert.Equal(suite.T(), 24, suite.g.Score())
+func (s *BowlingTestSuite) TestOneStrike() {
+	s.g.Roll(10)
+	s.g.Roll(3)
+	s.g.Roll(4)
+	s.rollMany(0, 16)
+	assert.Equal(s.T(), 24, s.g.Score())
 }
 
-func (suite *BowlingTestSuite) TestPerfectGame() {
-	suite.rollMany(10, 12)
-	assert.Equal(suite.T(), 300, suite.g.Score())
+func (s *BowlingTestSuite) TestPerfectGame() {
+	s.rollMany(10, 12)
+	assert.Equal(s.T(), 300, s.g.Score())
 }
