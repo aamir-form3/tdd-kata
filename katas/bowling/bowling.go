@@ -1,4 +1,4 @@
-package tdd_kata
+package bowling
 
 type game struct {
 	slots       [21]int

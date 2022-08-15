@@ -1,4 +1,4 @@
-package tdd_kata
+package prime_factor
 
 func FactorOf(n int) []int {
 	var factors []int

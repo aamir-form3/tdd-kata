@@ -1,4 +1,4 @@
-package tdd_kata
+package sort
 
 import (
 	"github.com/stretchr/testify/assert"

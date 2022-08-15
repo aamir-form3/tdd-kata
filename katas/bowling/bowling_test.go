@@ -1,4 +1,4 @@
-package tdd_kata
+package bowling
 
 import (
 	"github.com/stretchr/testify/assert"

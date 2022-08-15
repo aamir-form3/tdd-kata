@@ -1,4 +1,4 @@
-package tdd_kata
+package sort
 
 func Sort(nums []int) []int {
 

@@ -1,4 +1,4 @@
-package tdd_kata
+package server
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package tdd_kata
+package sort
 
 func QSort(list []int) []int {
 	result := make([]int, 0)

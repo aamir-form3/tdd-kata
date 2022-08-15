@@ -1,4 +1,4 @@
-package tdd_kata
+package prime_factor
 
 import (
 	"github.com/stretchr/testify/assert"
